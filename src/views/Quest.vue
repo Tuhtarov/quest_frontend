@@ -194,7 +194,7 @@ export default {
 
     async getQuests(){
       await axiosInstance.get("/quests").then(({data}) =>{
-        this.quests = data.quests
+        this.quests = data
       })
     },
 

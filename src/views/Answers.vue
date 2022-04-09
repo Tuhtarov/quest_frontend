@@ -198,7 +198,7 @@ export default {
 
     async fetchAnswers() {
       await axiosInstance.get("/answers").then(({ data }) => {
-        this.answers = data.answers;
+        this.answers = data;
       });
     },
 

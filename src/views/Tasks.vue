@@ -198,7 +198,7 @@
   methods: {
     async getTasks(){
       await axiosInstance.get("/tasks").then(({data}) => {
-        this.tasks = data.tasks
+        this.tasks = data
       })
     },
 
