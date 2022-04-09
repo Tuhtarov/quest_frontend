@@ -8,6 +8,9 @@
         <v-card outlined elevation="4">
           <v-card-text>
             <v-data-table :headers="headers" :items="quests" :search="search">
+              <template v-slot:item.createdAt="{item}">
+                {{ (new Date(item.createdAt)).toLocaleString('ru') }}
+              </template>
               <template v-slot:top>
                 <v-toolbar flat>
                   <v-toolbar-title>Квесты</v-toolbar-title>

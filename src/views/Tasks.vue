@@ -78,11 +78,13 @@
                               <v-text-field
                                 max-width="400px"
                                 v-model="editedItem.score"
+                                type="number"
                                 label="Очки"
                               />
 
                               <v-text-field
                                 max-width="400px"
+                                type="number"
                                 v-model="editedItem.priority"
                                 label="Приоритет"
                               />
@@ -168,8 +170,8 @@
       correct_answer_id: "",
       latitude: "",
       longitude: "",
-      score: "",
-      //priority: ""
+      score: 0,
+      priority: 0
     }
 
     }),
@@ -204,13 +206,13 @@
 
     async getAnswers(){
       await axiosInstance.get("/answers").then(({data}) => {
-        this.answers = data.answers
+        this.answers = data
       })
     },
 
     async getQuests(){
       await axiosInstance.get("/quests").then(({data}) => {
-        this.quests = data.quests
+        this.quests = data
       })
     },
 
