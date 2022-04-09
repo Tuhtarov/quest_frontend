@@ -8,10 +8,12 @@ RUN npm install && npm install -g http-server
 
 COPY . .
 
-RUN npm run build && cp dist/index.html dist/404.html
-
 EXPOSE 8080
 
 VOLUME /client/src
 
-CMD [ "http-server", "/client/dist" ]
+COPY ./.env ./.env
+
+RUN npm run build && cp dist/index.html dist/404.html
+
+ENTRYPOINT [ "http-server", "/client/dist" ]
